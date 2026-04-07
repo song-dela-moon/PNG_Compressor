@@ -1,21 +1,7 @@
 # 🖼️ ARM PNG Compressor
-**"C 컴파일러의 한계를 ARM 어셈블리 최적화로 극복한 이미지 처리 프로젝트입니다."**  
----
-## 🏗 아키텍처 (Architecture)
-```mermaid
-graph TD
-    Input[PNG Image] --> Pre[Python: Hex Converter]
-    Pre --> ARM[ARM Cortex-M System]
-    subgraph Core[Optimized Engine]
-        ARM --> F1[Color Extraction]
-        ARM --> F2[Grayscale/Binary]
-        ARM --> F3[Assembly Optimization]
-        F1 -- "Endian Fix" --> F3
-        F3 -- "3Area Relocation" --> Mem[Memory Alignment]
-    end
-    Mem --> Post[Python: PNG Recovery]
-    Post --> Output[Processed Image]
-```
+**"C 컴파일러의 한계를 ARM 어셈블리어 최적화로 극복한 이미지 처리 프로젝트입니다."**  
+<img width="1694" height="857" alt="image" src="https://github.com/user-attachments/assets/88213c1d-2830-4c37-bf93-0e25e1fffd21" />
+
 ---
 ## 🛠 해결한 문제 (Problem Solving)
 ### 1. 엔디안(Endian) 불일치로 인한 이미지 색상 왜곡 해결
@@ -40,6 +26,8 @@ graph TD
 - **Fast Transformation**: 고속 그레이스케일 및 이진화 처리 엔진
 - **Hand Optimization**: ARM 어셈블리 기반 레지스터 최적화 연산
 - **Memory Efficiency**: 3Area 재배치를 통한 메모리 액세스 극대화
+<img width="1848" height="852" alt="image" src="https://github.com/user-attachments/assets/f2192b3e-0e34-4fb1-aee9-bdf76810ece8" />
+
 ---
 ## 🛠 기술 스택 (Tech Stack)
 - **Languages**: C, ARM Assembly, Python
@@ -54,3 +42,19 @@ graph TD
 1. `4_Python_Script/png_to_RGBA_IntelHex.py`로 이미지를 헥사로 변환합니다.
 2. Keil MDK에서 프로젝트를 빌드한 후 ARM 시뮬레이터에서 실행합니다.
 3. 생성된 헥사를 다시 Python 스크립트로 변환하여 결과 이미지를 확인합니다.
+---
+## 🏗 아키텍처 (Architecture)
+```mermaid
+graph TD
+    Input[PNG Image] --> Pre[Python: Hex Converter]
+    Pre --> ARM[ARM Cortex-M System]
+    subgraph Core[Optimized Engine]
+        ARM --> F1[Color Extraction]
+        ARM --> F2[Grayscale/Binary]
+        ARM --> F3[Assembly Optimization]
+        F1 -- "Endian Fix" --> F3
+        F3 -- "3Area Relocation" --> Mem[Memory Alignment]
+    end
+    Mem --> Post[Python: PNG Recovery]
+    Post --> Output[Processed Image]
+```
